@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 // const router = express.Router();
-const file = require('../Parser/companys.json');
+const file = require('./miserables.json');
 
 require("dotenv").config();
 

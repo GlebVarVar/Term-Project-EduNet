@@ -1,13 +1,18 @@
 import { getPostAPI } from "../../services/get";
 import { useState, useEffect } from "react";
 
-import {Table} from 'react-bootstrap';
+// import { Table } from 'react-bootstrap';
+import ForceGraph from "./Forcegraph";
+import "./styles.css";
+
 
 
 const MainPage = () => {
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const [data, setData] = useState({})
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,51 +20,31 @@ const MainPage = () => {
             setError(null);
             try {
                 const data = await getPostAPI();
-                console.log(data.data);
-                setPosts(data.data);
+                setData(data.data);
+                setLoading(false);
+
             } catch (error) {
                 setError(error);
+                setLoading(false);
             }
-            setLoading(false);
+            
         }
         fetchData();
     }, []);
 
     if (loading) {
+        console.log("loading");
         return <div>Loading...</div>;
-    }
-    
-    if (error) {
+    } else if (error) {
         return <div>Error: {error.message}</div>;
+    } else if(!loading && !error) {
+        return (
+            <div className="App">
+                <ForceGraph data={data} />
+            </div>
+        );
     }
 
-    return (
-        
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>site</th>
-                </tr>
-            </thead>
-            <tbody>
-                { 
-                    posts.map((post, index) => {
-                        return (
-                            <tr key={index}>
-                                <td>{index}</td>
-                                <td>{post.name}</td>
-                                <td>{post.description}</td>
-                                <td>{post.site}</td>
-                            </tr>
-                        );
-                    })
-                }
-            </tbody>
-        </Table>
-    );
 }
 
 export default MainPage;
