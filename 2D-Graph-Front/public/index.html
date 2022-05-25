@@ -27,7 +27,11 @@
         ReactDOM.render(
           <ForceGraph2D
             graphData={data}
-           
+            onNodeDragEnd={node => {
+              node.fx = node.x;
+              node.fy = node.y;
+              node.fz = node.z;
+            }}
             
             backgroundColor="linear-gradient(#e66465, #9198e5)"
             onNodeRightClick={(node) => {
