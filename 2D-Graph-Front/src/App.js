@@ -5,8 +5,8 @@ const App = () => {
 
 
     return (
-        // RU:Шапка сайта с логотипом 
-        // EN:Site header with logo
+        // RU: Шапка сайта с логотипом 
+        // EN: Site header with logo
         <Navbar variant="light">
             <Container>
                 <Navbar.Brand href="https://nti2035.ru/markets/edunet">
