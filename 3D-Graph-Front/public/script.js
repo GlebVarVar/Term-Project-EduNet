@@ -1,6 +1,6 @@
 
 
-const fileName = './json/lowDataFinal.json';
+const fileName = './Json/lowDataFinal.json';
 
 fetch(fileName).then(res => res.json()).then(data => {
     ReactDOM.render(

@@ -23,7 +23,7 @@
 
   
     <script  type="text/jsx">
-      fetch('../json/LowDataFinal.json').then(res => res.json()).then(data => {
+      fetch('./Json/LowDataFinal.json').then(res => res.json()).then(data => {
         ReactDOM.render(
           <ForceGraph2D
             graphData={data}
