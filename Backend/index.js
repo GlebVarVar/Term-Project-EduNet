@@ -2,8 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+app.use(express.static('public'))
 
-const fileName = './json/LowDataFinal.json'     // RU: Название вашего файла | EN: Your file name
+const fileName = './Json/LowDataFinal.json'     // RU: Название вашего файла | EN: Your file name
 const file = require(fileName);                 // RU: Читаем json | EN: Read json
 
 
