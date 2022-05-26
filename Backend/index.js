@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.static('public'))
 
-const fileName = './Json/LowDataFinal.json'     // RU: Название вашего файла | EN: Your file name
+const fileName = './LowDataFinal.json'               // RU: Название вашего файла | EN: Your file name
 const file = require(fileName);                 // RU: Читаем json | EN: Read json
 
 
@@ -17,7 +17,7 @@ app.use(express.json());
 
 
 // RU: Обработка get запроса на получение всех данных | EN: Processing get request for getting all data
-app.get("", async (req, res) => {
+app.get("/", async (req, res) => {
     console.log("trying to send data");
     res.json(file); // RU: Отправляем данные json в ответе | EN: Send json data in response
 });
