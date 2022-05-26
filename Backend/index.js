@@ -2,14 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+// RU: Подключаем модуль cors для поддержки запросов из других сайтов | EN: Include cors module for support requests from other sites
+app.use(cors());
+
 app.use(express.static('public'))
 
 const fileName = './LowDataFinal.json'               // RU: Название вашего файла | EN: Your file name
 const file = require(fileName);                      // RU: Читаем json | EN: Read json
 
 
-// RU: Подключаем модуль cors для поддержки запросов из других сайтов | EN: Include cors module for support requests from other sites
-app.use(cors());
+
 // Ru: Подключаем модуль dotenv для поддержки переменных окружения | EN: Include dotenv module for support environment variables
 require("dotenv").config();
 // Ru: Подключаем модуль body-parser для поддержки запросов с телом | EN: Include body-parser module for support requests with body
