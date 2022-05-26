@@ -13,16 +13,14 @@
   <script src="//unpkg.com/react-force-graph-3d"></script>
   
   <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
-    <title>React App</title>
+    <title>Term-project-edu-net-3d</title>
   </head>
   <body>
     <div id="graph"></div>
 
     <script type="text/jsx" >
-      
-      const fileName = './Json/lowDataFinal.json';
 
-      fetch(fileName).then(res => res.json()).then(data => {
+      fetch('./Json/LowDataFinal.json').then(res => res.json()).then(data => {
           ReactDOM.render(
               <ForceGraph3D
               graphData={data}
