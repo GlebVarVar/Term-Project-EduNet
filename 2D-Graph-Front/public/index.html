@@ -24,7 +24,7 @@
 
   
     <script  type="text/jsx">
-      fetch('./Json/LowDataFinal.json').then(res => res.json()).then(data => {
+      fetch('http://localhost:3001/').then(res => res.json()).then(data => {
         ReactDOM.render(
           <ForceGraph2D
             graphData={data}
