@@ -28,7 +28,6 @@ app.get("/", async (req, res) => {
 // RU: Слушаем порт 3001 | EN: Listen port 3001
 app.listen(process.env.PORT || 3001, () => {
     console.log("server running on 'port 3001");
-
 });
 
 module.exports = app;
